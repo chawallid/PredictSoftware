@@ -150,27 +150,38 @@ class MyApp(QMainWindow):
                     x = x_1
                     X = np.array(X)
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
-                    result = (X.transpose()).dot(B)
+                    # steps = [self.prepro.comboBox.currentText()]
+
+                    indexStep = 0
+                    print("X.shape :",X.shape)
+                    print("B.shape :",B.shape)
+                    
+                    result = 0 
+                    print("result setup:", result)
                     for step in steps :
+                        print("input shape to next ", step , " steps :", x)
+                        if (indexStep >= 1):
+                            x = result
+                        indexStep += 1
+                         
                         if step == "1st Derivative":
                             s = s_1
                             g = g_1
-                            self.FirstDev()
-                            # result = result*(sd1.transpose())
-                            
+                            result = self.FirstDev()                              
                         elif step == "2nd Derivative":
                             s = s_2
                             g = g_2
-                            self.SecondDev()
-                            
+                            result = self.SecondDev()
                         elif step == "SNV":
-                            self.snv()
-
+                            result = self.snv()
                         elif step == "Smoothing Size":
                             s = s_3
                             g = g_3
-                            self.smooth_x()
+                            result = self.smooth_x()
                         
+
+                    print("sum X shape:",result)
+                    result = (result.transpose()).dot(B)
                     realresult = sum(result)
                     result1 = realresult + self.systemconfig.spinBox_4.value()
                     print("cal result1  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_4.value(), " = ", result1)
@@ -576,6 +587,9 @@ class MyApp(QMainWindow):
         
     def FirstDev(self):
         global x,s,g,sd1
+        print("x value  :", x)
+        print("s", s)
+        print("g", g)
         xx = x.shape[0]
         xy = x.shape[1]
         sd1= np.zeros([xx,xy])
@@ -583,6 +597,8 @@ class MyApp(QMainWindow):
             sa=np.mean(x[:,int(i - s - g / 2 + 0.5):int(i - g / 2 - 0.5)], axis = 1)
             sc=np.mean(x[:,int(i + g / 2 + 0.5):int(i + g / 2 - 0.5 + s)], axis = 1)
             sd1[:,i]=sc - sa
+        print("sd1" , sd1)
+        return sd1
 
     def SecondDev(self):
         global x,s,g,sd2
@@ -594,7 +610,7 @@ class MyApp(QMainWindow):
             x_a=np.mean(x[:,int(i - np.dot(3 / 2,s) - g + 0.5):int(i - s / 2 - g - 0.5)],axis = 1)
             x_b=np.mean(x[:,int(i - s / 2 + 0.5):int(i + s / 2 - 0.5)],axis = 1)
             sd2[:,i]=(x_c) - np.dot(2,(x_b)) + (x_a)
-
+        return sd2
     def smooth_x(self):
         global x,s,g,smooth
         xx = x.shape[0]
@@ -603,19 +619,20 @@ class MyApp(QMainWindow):
         for i in range(s+1, xy-s):
             sa = np.mean(x[:, int(i - s):int(i + s)], axis=1)
             smooth[:, i] = sa
-
+        return smooth
     def snv(self):
         global x,s,g,snv_data
         xx = x.shape[0]
         xy = x.shape[1]
         mean_x=np.mean(x,axis =1)
-        print("mean_x",mean_x)
+        # print("mean_x",mean_x)
         std_d=np.std(x,axis=1)
-        print("std_d",std_d)
+        # print("std_d",std_d)
         meand=np.tile(mean_x,(xy,1)).T
         stdd=np.tile(std_d,(xy,1)).T
-        print("meand,stdd",meand,stdd)
+        # print("meand,stdd",meand,stdd)
         snv_data= (x - meand)/stdd
+        return snv_data
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
