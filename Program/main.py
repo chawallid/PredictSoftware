@@ -147,59 +147,63 @@ class MyApp(QMainWindow):
                 if(file_1 != ""):
                     print("File_1")
                     B = x_1
-                    x = x_1
+                    # x = x_1
                     X = np.array(X)
+                    x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
                     # steps = [self.prepro.comboBox.currentText()]
-
+                    print("steps :", steps)
                     indexStep = 0
-                    print("X.shape :",X.shape)
+                    print("X.shape :",x.shape)
                     print("B.shape :",B.shape)
                     
                     result = 0 
                     print("result setup:", result)
-                    for step in steps :
-                        print("input shape to next ", step , " steps :", x)
-                        if (indexStep >= 1):
-                            x = result
-                        indexStep += 1
-                         
-                        if step == "1st Derivative":
-                            s = s_1
-                            g = g_1
-                            result = self.FirstDev()                              
-                        elif step == "2nd Derivative":
-                            s = s_2
-                            g = g_2
-                            result = self.SecondDev()
-                        elif step == "SNV":
-                            result = self.snv()
-                        elif step == "Smoothing Size":
-                            s = s_3
-                            g = g_3
-                            result = self.smooth_x()
-                        
+                    if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
+                        result = x
+                    else :
+                        for step in steps :
+                            print("input shape to next ", step , " steps :", x.shape)
+                            if (indexStep >= 1):
+                                x = result
+                            indexStep += 1
+                            
+                            if step == "1st Derivative":
+                                s = s_1
+                                g = g_1
+                                result = self.FirstDev()                              
+                            elif step == "2nd Derivative":
+                                s = s_2
+                                g = g_2
+                                result = self.SecondDev()
+                            elif step == "SNV":
+                                result = self.snv()
+                            elif step == "Smoothing Size":
+                                s = s_3
+                                g = g_3
+                                result = self.smooth_x()
 
-                    print("sum X shape:",result)
+                    print("output shape:",result.shape)
                     result = (result.transpose()).dot(B)
                     realresult = sum(result)
-                    result1 = realresult + self.systemconfig.spinBox_4.value()
-                    print("cal result1  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_4.value(), " = ", result1)
-                    self.dashborad.result1.setText(str(np.round(result1, 2)))
-                    self.dashborad.figure.clear()
-                    ax2 = self.dashborad.figure.add_subplot(111)
-                    x_coordinates1.append(now.strftime('%H:%M:%S'))
-                    list_tmp1.append(result1)
-                    ax2.plot(x_coordinates1, list_tmp1)
+                    print("result:",realresult)
+                    # result1 = realresult + self.systemconfig.spinBox_4.value()
+                    # print("cal result1  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_4.value(), " = ", result1)
+                    # self.dashborad.result1.setText(str(np.round(result1, 2)))
+                    # self.dashborad.figure.clear()
+                    # ax2 = self.dashborad.figure.add_subplot(111)
+                    # x_coordinates1.append(now.strftime('%H:%M:%S'))
+                    # list_tmp1.append(result1)
+                    # ax2.plot(x_coordinates1, list_tmp1)
 
-                    ax2.set_xlabel('Time')
-                    ax2.set_ylabel('Results')
-                    gs = gridspec.GridSpec(3,1)
-                    ax2.set_position(gs[0:2].get_position(self.dashborad.figure))
-                    ax2.set_subplotspec(gs[0:2])   
-                    ax2.set_xticklabels(x_coordinates1, rotation=90 , fontsize=8 )
-                    self.dashborad.canvas.draw()
-                    print("draw 1 succ !!")
+                    # ax2.set_xlabel('Time')
+                    # ax2.set_ylabel('Results')
+                    # gs = gridspec.GridSpec(3,1)
+                    # ax2.set_position(gs[0:2].get_position(self.dashborad.figure))
+                    # ax2.set_subplotspec(gs[0:2])   
+                    # ax2.set_xticklabels(x_coordinates1, rotation=90 , fontsize=8 )
+                    # self.dashborad.canvas.draw()
+                    # print("draw 1 succ !!")
 
                 if(file_2 != ""):
                     print("File_2")
@@ -587,21 +591,20 @@ class MyApp(QMainWindow):
         
     def FirstDev(self):
         global x,s,g,sd1
-        print("x value  :", x)
-        print("s", s)
-        print("g", g)
-        xx = x.shape[0]
-        xy = x.shape[1]
-        sd1= np.zeros([xx,xy])
+        x = x.transpose()
+        xx  = x.shape[0]
+        xy  = x.shape[1]
+        sd1 = np.zeros([xx,xy])
         for i in range(int(s + g / 2 + 0.5), int(xy - s - g / 2 + 0.5)):
             sa=np.mean(x[:,int(i - s - g / 2 + 0.5):int(i - g / 2 - 0.5)], axis = 1)
             sc=np.mean(x[:,int(i + g / 2 + 0.5):int(i + g / 2 - 0.5 + s)], axis = 1)
             sd1[:,i]=sc - sa
-        print("sd1" , sd1)
+        sd1 = sd1.transpose()
         return sd1
 
     def SecondDev(self):
         global x,s,g,sd2
+        x = x.transpose()
         xx = x.shape[0]
         xy = x.shape[1]
         sd2= np.zeros([xx,xy])
@@ -610,23 +613,31 @@ class MyApp(QMainWindow):
             x_a=np.mean(x[:,int(i - np.dot(3 / 2,s) - g + 0.5):int(i - s / 2 - g - 0.5)],axis = 1)
             x_b=np.mean(x[:,int(i - s / 2 + 0.5):int(i + s / 2 - 0.5)],axis = 1)
             sd2[:,i]=(x_c) - np.dot(2,(x_b)) + (x_a)
+        sd2 = sd2.transpose()
         return sd2
+
     def smooth_x(self):
         global x,s,g,smooth
+        x = x.transpose()
+        # print("smoothing x,s :", x , s)
         xx = x.shape[0]
         xy = x.shape[1]
         smooth = np.zeros([xx, xy])
+        # print("smoothing x,s :", x , s)
         for i in range(s+1, xy-s):
             sa = np.mean(x[:, int(i - s):int(i + s)], axis=1)
             smooth[:, i] = sa
+
+        smooth = smooth.transpose()
         return smooth
+
     def snv(self):
         global x,s,g,snv_data
         xx = x.shape[0]
         xy = x.shape[1]
-        mean_x=np.mean(x,axis =1)
+        mean_x=np.mean(x,axis =0)
         # print("mean_x",mean_x)
-        std_d=np.std(x,axis=1)
+        std_d=np.std(x,axis=0)
         # print("std_d",std_d)
         meand=np.tile(mean_x,(xy,1)).T
         stdd=np.tile(std_d,(xy,1)).T
