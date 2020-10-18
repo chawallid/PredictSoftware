@@ -152,18 +152,18 @@ class MyApp(QMainWindow):
                     x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
                     # steps = [self.prepro.comboBox.currentText()]
-                    print("steps :", steps)
+                    # print("steps :", steps)
                     indexStep = 0
-                    print("X.shape :",x.shape)
-                    print("B.shape :",B.shape)
+                    # print("X.shape :",x.shape)
+                    # print("B.shape :",B.shape)
                     
                     result = 0 
-                    print("result setup:", result)
+                    # print("result setup:", result)
                     if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
                         result = x
                     else :
                         for step in steps :
-                            print("input shape to next ", step , " steps :", x.shape)
+                            # print("input shape to next ", step , " steps :", x.shape)
                             if (indexStep >= 1):
                                 x = result
                             indexStep += 1
@@ -183,10 +183,10 @@ class MyApp(QMainWindow):
                                 g = g_3
                                 result = self.smooth_x()
 
-                    print("output shape:",result.shape)
+                    # print("output shape:",result.shape)
                     result = (result.transpose()).dot(B)
                     realresult = sum(result)
-                    print("result:",realresult)
+                    # print("result:",realresult)
                     result1 = realresult + self.systemconfig.spinBox_4.value()
                     print("cal result1  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_4.value(), " = ", result1)
                     self.dashborad.result1.setText(str(np.round(result1, 2)))
@@ -208,33 +208,44 @@ class MyApp(QMainWindow):
                 if(file_2 != ""):
                     print("File_2")
                     B = x_2
-                    x = x_2
+
                     X = np.array(X)
+                    x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
-                    result = (X.transpose()).dot(B)
-                    for step in steps :
-                        if step == "1st Derivative":
-                            s = s_1
-                            g = g_1
-                            self.FirstDev()
-                            result = result*(sd1.transpose())
-                            
-                        elif step == "2nd Derivative":
-                            s = s_2
-                            g = g_2
-                            self.SecondDev()
-                            result = result*(sd2.transpose())
-                            
-                        elif step == "SNV":
-                            self.snv()
-                            result = result*(snv_data.transpose())
-                            
-                        elif step == "Smoothing Size":
-                            s = s_3
-                            g = g_3
-                            self.smooth_x()
-                            result = result*(smooth.transpose())
+                    # steps = [self.prepro.comboBox.currentText()]
+                    # print("steps :", steps)
+                    indexStep = 0
+                    # print("X.shape :",x.shape)
+                    # print("B.shape :",B.shape)
                     
+                    result = 0 
+                    # print("result setup:", result)
+                    if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
+                        result = x
+                    else :
+                        for step in steps :
+                            # print("input shape to next ", step , " steps :", x.shape)
+                            if (indexStep >= 1):
+                                x = result
+                            indexStep += 1
+                            
+                            if step == "1st Derivative":
+                                s = s_1
+                                g = g_1
+                                result = self.FirstDev()                              
+                            elif step == "2nd Derivative":
+                                s = s_2
+                                g = g_2
+                                result = self.SecondDev()
+                            elif step == "SNV":
+                                result = self.snv()
+                            elif step == "Smoothing Size":
+                                s = s_3
+                                g = g_3
+                                result = self.smooth_x()
+
+                    # print("output shape:",result.shape)
+                    result = (result.transpose()).dot(B)
                     realresult = sum(result)
                     result2 = realresult + self.systemconfig.spinBox_5.value()
                     print("cal result2  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_5.value(), " = ", result2)
@@ -257,33 +268,43 @@ class MyApp(QMainWindow):
                 if(file_3 != ""):
                     print("File_3")
                     B = x_3
-                    x = x_3
                     X = np.array(X)
+                    x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
-                    result = (X.transpose()).dot(B)
-
-                    for step in steps :
-                        if step == "1st Derivative":
-                            s = s_1
-                            g = g_1
-                            self.FirstDev()
-                            result = result*(sd1.transpose())
-                        elif step == "2nd Derivative":
-                            s = s_2
-                            g = g_2
-                            self.SecondDev()
-                            result = result*(sd2.transpose())
-
-                        elif step == "SNV":
-                            self.snv()
-                            result = result*(snv_data.transpose())
-
-                        elif step == "Smoothing Size":
-                            s = s_3
-                            g = g_3
-                            self.smooth_x()
-                            result = result*(smooth.transpose())
+                    # steps = [self.prepro.comboBox.currentText()]
+                    # print("steps :", steps)
+                    indexStep = 0
+                    # print("X.shape :",x.shape)
+                    # print("B.shape :",B.shape)
                     
+                    result = 0 
+                    # print("result setup:", result)
+                    if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
+                        result = x
+                    else :
+                        for step in steps :
+                            # print("input shape to next ", step , " steps :", x.shape)
+                            if (indexStep >= 1):
+                                x = result
+                            indexStep += 1
+                            
+                            if step == "1st Derivative":
+                                s = s_1
+                                g = g_1
+                                result = self.FirstDev()                              
+                            elif step == "2nd Derivative":
+                                s = s_2
+                                g = g_2
+                                result = self.SecondDev()
+                            elif step == "SNV":
+                                result = self.snv()
+                            elif step == "Smoothing Size":
+                                s = s_3
+                                g = g_3
+                                result = self.smooth_x()
+
+                    # print("output shape:",result.shape)
+                    result = (result.transpose()).dot(B)
                     realresult = sum(result)
                     result3 = realresult + self.systemconfig.spinBox_6.value()
                     print("cal result3  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_6.value(), " = ", result3)
@@ -307,33 +328,43 @@ class MyApp(QMainWindow):
                 if(file_4 != ""):
                     print("File_4")
                     B = x_4
-                    x = x_4
                     X = np.array(X)
+                    x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
-                    result = (X.transpose()).dot(B)
-                    for step in steps :
-                        if step == "1st Derivative":
-                            s = s_1
-                            g = g_1
-                            self.FirstDev()
-                            result = result*(sd1.transpose())
-                            
-                        elif step == "2nd Derivative":
-                            s = s_2
-                            g = g_2
-                            self.SecondDev()
-                            result = result*(sd2.transpose())
-
-                        elif step == "SNV":
-                            self.snv()
-                            result = result*(snv_data.transpose())
- 
-                        elif step == "Smoothing Size":
-                            s = s_3
-                            g = g_3
-                            self.smooth_x()
-                            result = result*(smooth.transpose())
+                    # steps = [self.prepro.comboBox.currentText()]
+                    # print("steps :", steps)
+                    indexStep = 0
+                    # print("X.shape :",x.shape)
+                    # print("B.shape :",B.shape)
                     
+                    result = 0 
+                    # print("result setup:", result)
+                    if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
+                        result = x
+                    else :
+                        for step in steps :
+                            # print("input shape to next ", step , " steps :", x.shape)
+                            if (indexStep >= 1):
+                                x = result
+                            indexStep += 1
+                            
+                            if step == "1st Derivative":
+                                s = s_1
+                                g = g_1
+                                result = self.FirstDev()                              
+                            elif step == "2nd Derivative":
+                                s = s_2
+                                g = g_2
+                                result = self.SecondDev()
+                            elif step == "SNV":
+                                result = self.snv()
+                            elif step == "Smoothing Size":
+                                s = s_3
+                                g = g_3
+                                result = self.smooth_x()
+
+                    # print("output shape:",result.shape)
+                    result = (result.transpose()).dot(B)
                     realresult = sum(result)
                     result4 = realresult + self.systemconfig.spinBox_7.value()
                     print("cal result4  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_7.value(), " = ", result4)
@@ -358,34 +389,43 @@ class MyApp(QMainWindow):
                 if(file_5 != ""):
                     print("File_5")
                     B = x_5
-                    x = x_5
                     X = np.array(X)
+                    x = X
                     steps = [self.prepro.comboBox.currentText(),self.prepro.comboBox2.currentText(),self.prepro.comboBox3.currentText()]
-                    result = (X.transpose()).dot(B)
-
-                    for step in steps :
-                        if step == "1st Derivative":
-                            s = s_1
-                            g = g_1
-                            self.FirstDev()
-                            result = result*(sd1.transpose())
-                            
-                        elif step == "2nd Derivative":
-                            s = s_2
-                            g = g_2
-                            self.SecondDev()
-                            result = result*(sd2.transpose())
-                            
-                        elif step == "SNV":
-                            self.snv()
-                            result = result*(snv_data.transpose())
-
-                        elif step == "Smoothing Size":
-                            s = s_3
-                            g = g_3
-                            self.smooth_x()
-                            result = result*(smooth.transpose())
+                    # steps = [self.prepro.comboBox.currentText()]
+                    # print("steps :", steps)
+                    indexStep = 0
+                    # print("X.shape :",x.shape)
+                    # print("B.shape :",B.shape)
                     
+                    result = 0 
+                    # print("result setup:", result)
+                    if steps[0] == '---select---' and steps[1] == '---select---' and steps[2] == '---select---' :
+                        result = x
+                    else :
+                        for step in steps :
+                            # print("input shape to next ", step , " steps :", x.shape)
+                            if (indexStep >= 1):
+                                x = result
+                            indexStep += 1
+                            
+                            if step == "1st Derivative":
+                                s = s_1
+                                g = g_1
+                                result = self.FirstDev()                              
+                            elif step == "2nd Derivative":
+                                s = s_2
+                                g = g_2
+                                result = self.SecondDev()
+                            elif step == "SNV":
+                                result = self.snv()
+                            elif step == "Smoothing Size":
+                                s = s_3
+                                g = g_3
+                                result = self.smooth_x()
+
+                    # print("output shape:",result.shape)
+                    result = (result.transpose()).dot(B)
                     realresult = sum(result)
                     result5 = realresult + self.systemconfig.spinBox_8.value()
                     print("cal result5  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_8.value(), " = ", result5)
