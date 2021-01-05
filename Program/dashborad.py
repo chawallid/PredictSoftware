@@ -273,37 +273,53 @@ class  Ui_MainWindow(QMainWindow):
                 self.frame_2.setObjectName("frame_2")
 
                 subFrame2_gridLayout = QGridLayout(self.frame_2)
-                self.buttonSysConfig = QtWidgets.QPushButton(self.frame_2)
+                self.buttonSetting = QtWidgets.QPushButton(self.frame_2)
                 font = QtGui.QFont()
                 font.setFamily("Tahoma")
                 font.setPointSize(14)
                 font.setBold(False)
                 font.setItalic(False)
                 font.setWeight(50)
-                self.buttonSysConfig.setFont(font)
-                self.buttonSysConfig.setStyleSheet("border: 0px solid;\n"
+                self.buttonSetting.setFont(font)
+                self.buttonSetting.setStyleSheet("border: 0px solid;\n"
         "border-radius: 20px;\n"
         "background-color: rgb(0, 97, 114);\n"
         "color: \"white\";\n"
         "font: 14pt \"Tahoma\";")
-                self.buttonSysConfig.setObjectName("buttonSysConfig")
-
-                self.buttonPrePro = QtWidgets.QPushButton(self.frame_2)
-                self.buttonPrePro.setGeometry(QtCore.QRect(1090, 590, 161, 41))
-                font = QtGui.QFont()
-                font.setFamily("Tahoma")
-                font.setPointSize(14)
-                font.setBold(False)
-                font.setItalic(False)
-                font.setWeight(50)
-                self.buttonPrePro.setFont(font)
-                self.buttonPrePro.setStyleSheet("border: 0px solid;\n"
-        "border-radius: 20px;\n"
-        "background-color: rgb(7, 61, 134);\n"
-        "color: \"white\";\n"
-        "font: 14pt \"Tahoma\";")
-                self.buttonPrePro.setObjectName("buttonPrePro")
-
+                self.buttonSetting.setObjectName("buttonSetting")
+        ###################################################SysConfig######################################################
+        #         subFrame2_gridLayout = QGridLayout(self.frame_2)
+        #         self.buttonSysConfig = QtWidgets.QPushButton(self.frame_2)
+        #         font = QtGui.QFont()
+        #         font.setFamily("Tahoma")
+        #         font.setPointSize(14)
+        #         font.setBold(False)
+        #         font.setItalic(False)
+        #         font.setWeight(50)
+        #         self.buttonSysConfig.setFont(font)
+        #         self.buttonSysConfig.setStyleSheet("border: 0px solid;\n"
+        # "border-radius: 20px;\n"
+        # "background-color: rgb(0, 97, 114);\n"
+        # "color: \"white\";\n"
+        # "font: 14pt \"Tahoma\";")
+        #         self.buttonSysConfig.setObjectName("buttonSysConfig")
+        ###################################################prepro######################################################
+        #         self.buttonPrePro = QtWidgets.QPushButton(self.frame_2)
+        #         self.buttonPrePro.setGeometry(QtCore.QRect(1090, 590, 161, 41))
+        #         font = QtGui.QFont()
+        #         font.setFamily("Tahoma")
+        #         font.setPointSize(14)
+        #         font.setBold(False)
+        #         font.setItalic(False)
+        #         font.setWeight(50)
+        #         self.buttonPrePro.setFont(font)
+        #         self.buttonPrePro.setStyleSheet("border: 0px solid;\n"
+        # "border-radius: 20px;\n"
+        # "background-color: rgb(7, 61, 134);\n"
+        # "color: \"white\";\n"
+        # "font: 14pt \"Tahoma\";")
+        #         self.buttonPrePro.setObjectName("buttonPrePro")
+        ###################################################prepro######################################################
                 self.EXIT = QtWidgets.QPushButton(self.frame_2)
                 font = QtGui.QFont()
                 font.setFamily("Tahoma")
@@ -350,8 +366,9 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.START.setFixedHeight(75)
                 self.STOP.setFixedHeight(75)
-                self.buttonSysConfig.setFixedHeight(75)
-                self.buttonPrePro.setFixedHeight(75)
+                # self.buttonSysConfig.setFixedHeight(75)
+                # self.buttonPrePro.setFixedHeight(75)
+                self.buttonSetting.setFixedHeight(75)
                 self.EXIT.setFixedHeight(40)
                 # self.START.setFixedWidth(100)
                 # self.STOP.setFixedWidth(100)
@@ -361,8 +378,11 @@ class  Ui_MainWindow(QMainWindow):
                 subFrame2_gridLayout.addWidget(self.START,0,0)
                 subFrame2_gridLayout.addWidget(self.STOP,1,0)
                 subFrame2_gridLayout.addWidget(QtWidgets.QLabel(""),2,0)
-                subFrame2_gridLayout.addWidget(self.buttonSysConfig,3,0)
-                subFrame2_gridLayout.addWidget(self.buttonPrePro,4,0)
+                # subFrame2_gridLayout.addWidget(self.buttonSysConfig,3,0)
+                # subFrame2_gridLayout.addWidget(self.buttonPrePro,4,0)
+                ########### new version #############
+                subFrame2_gridLayout.addWidget(self.buttonSetting,3,0)
+                #####################################
                 subFrame2_gridLayout.addWidget(self.EXIT,5,0)
 
                 self.frame_2.setFixedWidth(200)
@@ -410,8 +430,9 @@ class  Ui_MainWindow(QMainWindow):
                 self.tabWidget.setTabText(self.tabWidget.indexOf(self.canvas2),  "Curves 3")
                 self.tabWidget.setTabText(self.tabWidget.indexOf(self.canvas3),  "Curves 4")
                 self.tabWidget.setTabText(self.tabWidget.indexOf(self.canvas4),  "Curves 5")
-                self.buttonSysConfig.setText( "System Config")
-                self.buttonPrePro.setText( "Pre-Processing")
+                self.buttonSetting.setText( "Setting")
+                # self.buttonSysConfig.setText( "System Config")
+                # self.buttonPrePro.setText( "Pre-Processing")
 
 # if __name__ == "__main__":
 #     import sys
