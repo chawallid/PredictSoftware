@@ -2824,11 +2824,11 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.label_R1_1stD.setText("<html><head/><body><p align=\"center\">1st Derivative</p></body></html>")
                 self.label_GabResult1_1D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult1_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult1_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
                 
                 self.label_R1_2ndD.setText("<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd Derivative</span></p></body></html>")
                 self.label_GabResult1_2D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult1_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult1_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
 
                 self.label_R1_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Smoothing Size</span></p></body></html>")
                 self.label_GabResult1_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Gab</span></p></body></html>")
@@ -2865,11 +2865,11 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.label_R2_1stD.setText("<html><head/><body><p align=\"center\">1st Derivative</p></body></html>")
                 self.label_GabResult2_1D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult2_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult2_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
                 
                 self.label_R2_2ndD.setText("<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd Derivative</span></p></body></html>")
                 self.label_GabResult2_2D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult2_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult2_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
 
                 self.label_R2_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Smoothing Size</span></p></body></html>")
                 self.label_GabResult2_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Gab</span></p></body></html>")
@@ -2906,11 +2906,11 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.label_R3_1stD.setText("<html><head/><body><p align=\"center\">1st Derivative</p></body></html>")
                 self.label_GabResult3_1D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult3_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult3_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
                 
                 self.label_R3_2ndD.setText("<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd Derivative</span></p></body></html>")
                 self.label_GabResult3_2D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult3_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult3_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
 
                 self.label_R3_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Smoothing Size</span></p></body></html>")
                 self.label_GabResult3_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Gab</span></p></body></html>")
@@ -2947,11 +2947,11 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.label_R4_1stD.setText("<html><head/><body><p align=\"center\">1st Derivative</p></body></html>")
                 self.label_GabResult4_1D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult4_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult4_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
                 
                 self.label_R4_2ndD.setText("<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd Derivative</span></p></body></html>")
                 self.label_GabResult4_2D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult4_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult4_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
 
                 self.label_R4_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Smoothing Size</span></p></body></html>")
                 self.label_GabResult4_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Gab</span></p></body></html>")
@@ -2989,14 +2989,14 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.label_R5_1stD.setText("<html><head/><body><p align=\"center\">1st Derivative</p></body></html>")
                 self.label_GabResult5_1D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult5_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult5_1D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
                 
                 self.label_R5_2ndD.setText("<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd Derivative</span></p></body></html>")
                 self.label_GabResult5_2D.setText("<html><head/><body><p align=\"center\">Gab</p></body></html>")
-                self.label_SGResult5_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Segment</span></p></body></html>")
+                self.label_SGResult5_2D.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:6pt;\">Seg</span></p></body></html>")
 
                 self.label_R5_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Smoothing Size</span></p></body></html>")
-                self.label_GabResult5_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Gab</span></p></body></html>")
+                self.label_GabResult5_sm.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Seg</span></p></body></html>")
 
                 self.comboBox_step1_result5.setItemText(0, "----Select----")
                 self.comboBox_step1_result5.setItemText(1, "SNV")

@@ -188,7 +188,7 @@ class MyApp(QMainWindow):
                                 result = self.snv()
                             elif step == "Smoothing Size":
                                 # s = s_3
-                                g = int(self.setting.doubleSpinBox_sm_result1_gab.value())
+                                s = int(self.setting.doubleSpinBox_sm_result1_gab.value())
                                 result = self.smooth_x()
 
                     # print("output shape:",result.shape)
@@ -249,7 +249,7 @@ class MyApp(QMainWindow):
                                 result = self.snv()
                             elif step == "Smoothing Size":
                                 # s = s_3
-                                g = int(self.setting.doubleSpinBox_sm_result2_gab.value())
+                                s = int(self.setting.doubleSpinBox_sm_result2_gab.value())
                                 result = self.smooth_x()
 
                     # print("output shape:",result.shape)
@@ -308,7 +308,7 @@ class MyApp(QMainWindow):
                                 result = self.snv()
                             elif step == "Smoothing Size":
                                 # s = s_3
-                                g = int(self.setting.doubleSpinBox_sm_result3_gab.value())
+                                s = int(self.setting.doubleSpinBox_sm_result3_gab.value())
                                 result = self.smooth_x()
 
                     # print("output shape:",result.shape)
@@ -368,7 +368,7 @@ class MyApp(QMainWindow):
                                 result = self.snv()
                             elif step == "Smoothing Size":
                                 # s = s_3
-                                g = int(self.setting.doubleSpinBox_sm_result4_gab.value())
+                                s = int(self.setting.doubleSpinBox_sm_result4_gab.value())
                                 result = self.smooth_x()
 
                     # print("output shape:",result.shape)
@@ -429,7 +429,7 @@ class MyApp(QMainWindow):
                                 result = self.snv()
                             elif step == "Smoothing Size":
                                 # s = s_3
-                                g = int(self.setting.doubleSpinBox_sm_result5_gab.value())
+                                s = int(self.setting.doubleSpinBox_sm_result5_gab.value())
                                 result = self.smooth_x()
 
                     # print("output shape:",result.shape)
@@ -507,6 +507,7 @@ class MyApp(QMainWindow):
         # self.prepro.btnApply.clicked.connect(self.getPrepair)
 
         # self.prepro.Export.clicked.connect(self.getTxt)
+
     def specific(self):
         global file_spec,myPath
         myPath = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory"))
@@ -658,7 +659,7 @@ class MyApp(QMainWindow):
         return sd2
 
     def smooth_x(self):
-        global x,s,g,smooth
+        global x,s,smooth
         x = x.transpose()
         # print("smoothing x,s :", x , s)
         xx = x.shape[0]
