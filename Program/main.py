@@ -187,7 +187,7 @@ class MyApp(QMainWindow):
                             elif step == "SNV":
                                 result = self.snv()
                             elif step == "Smoothing Size":
-                                s = s_3
+                                # s = s_3
                                 g = int(self.setting.doubleSpinBox_sm_result1_gab.value())
                                 result = self.smooth_x()
 
@@ -248,7 +248,7 @@ class MyApp(QMainWindow):
                             elif step == "SNV":
                                 result = self.snv()
                             elif step == "Smoothing Size":
-                                s = s_3
+                                # s = s_3
                                 g = int(self.setting.doubleSpinBox_sm_result2_gab.value())
                                 result = self.smooth_x()
 
@@ -307,7 +307,7 @@ class MyApp(QMainWindow):
                             elif step == "SNV":
                                 result = self.snv()
                             elif step == "Smoothing Size":
-                                s = s_3
+                                # s = s_3
                                 g = int(self.setting.doubleSpinBox_sm_result3_gab.value())
                                 result = self.smooth_x()
 
@@ -367,7 +367,7 @@ class MyApp(QMainWindow):
                             elif step == "SNV":
                                 result = self.snv()
                             elif step == "Smoothing Size":
-                                s = s_3
+                                # s = s_3
                                 g = int(self.setting.doubleSpinBox_sm_result4_gab.value())
                                 result = self.smooth_x()
 
@@ -428,7 +428,7 @@ class MyApp(QMainWindow):
                             elif step == "SNV":
                                 result = self.snv()
                             elif step == "Smoothing Size":
-                                s = s_3
+                                # s = s_3
                                 g = int(self.setting.doubleSpinBox_sm_result5_gab.value())
                                 result = self.smooth_x()
 
@@ -511,7 +511,8 @@ class MyApp(QMainWindow):
         global file_spec,myPath
         myPath = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory"))
 
-        print("specific path:",myPath)
+        print("specific path:",myPath) 
+        self.setting.label_directotyfolder.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">"+myPath+"</span></p></body></html>")
 
     def getbtn1(self):
         print()

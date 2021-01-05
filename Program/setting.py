@@ -3016,7 +3016,7 @@ class  Ui_MainWindow(QMainWindow):
 
                 self.apply.setText("APPLY")
                 self.cancel.setText("CANCEL")
-                self.label_spectro.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Spectrometer self</span></p></body></html>")
+                self.label_spectro.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Spectrometer Setting</span></p></body></html>")
                 self.label_spectro_integTime.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:400;\">Integration time</span></p></body></html>")
                 self.label_spectro_integTime_ms.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:400;\">ms</span></p></body></html>")
                 self.label_wavelenght.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Wave Length</span></p></body></html>")
