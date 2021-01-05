@@ -219,7 +219,7 @@ class MyApp(QMainWindow):
 
                     X = np.array(X)
                     x = X
-                    steps = [self.setting.comboBox_step1_result2.currentText(),self.setting.comboBox_step2_result2.currentText(),setting.comboBox_step3_result2.currentText()]
+                    steps = [self.setting.comboBox_step1_result2.currentText(),self.setting.comboBox_step2_result2.currentText(),self.setting.comboBox_step3_result2.currentText()]
                     # steps = [self.prepro.comboBox.currentText()]
                     # print("steps :", steps)
                     indexStep = 0
@@ -314,7 +314,7 @@ class MyApp(QMainWindow):
                     # print("output shape:",result.shape)
                     result = (result.transpose()).dot(B)
                     realresult = sum(result)
-                    result3 = realresult + int(self.setting.widget_biasResult3.value())
+                    result3 = realresult + int(self.setting.doubleSpinBox_biasResult3.value())
                     # print("cal result3  : ", realresult, "+ Bias : ", self.systemconfig.spinBox_6.value(), " = ", result3)
                     self.dashborad.result3.setText(str(np.round(result3, 2)))
                     self.dashborad.figure2.clear()
